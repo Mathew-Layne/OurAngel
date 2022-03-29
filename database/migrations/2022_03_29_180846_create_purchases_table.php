@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->date('purchase_date');
+            $table->integer('quantity');
             $table->foreignId('parent_id')->constrained()->onDelete('cascade');
             $table->foreignId('voucher_id')->constrained();
-            $table->integer('quantity')->unsigned();
             $table->timestamps();
         });
     }
