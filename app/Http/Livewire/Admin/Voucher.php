@@ -6,8 +6,6 @@ use App\Models\Voucher as ModelsVoucher;
 use Livewire\Component;
 
 
-
-
 class Voucher extends Component
 {
     public $voucherName, $value, $price;

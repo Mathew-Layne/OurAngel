@@ -16,8 +16,6 @@ class Voucher extends Model
         'name',
         'value',
         'price',
-        'voucher_id',
-        'student_id',
     ];
     
     public function voucherHistory(){
