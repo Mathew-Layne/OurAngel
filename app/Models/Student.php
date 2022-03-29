@@ -8,22 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
     protected $fillable = [
         'first_name',
@@ -33,4 +17,11 @@ class Student extends Model
         'student_id'
     ];
     
+    public function parent(){
+        return $this->belongsTo(Parent::class);
+    }
+
+    public function voucherHistory(){
+        return $this->hasMany(VoucherHistory::class);
+    }
 }

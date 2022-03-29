@@ -9,17 +9,7 @@ class VoucherHistory extends Model
 {
     use HasFactory;
 
-   
-   
-   
-   
-   
-   
-   
-   
-   
-    
-   
+      
     protected $fillable = [
         'purchased_on',
         'amount',
@@ -27,4 +17,11 @@ class VoucherHistory extends Model
         'voucher_id',
         'student_id',
     ];
+    public function voucher(){
+        return $this->belongsTo(Voucher::class);
+    }
+    
+     public function student(){
+         return $this->belongsTo(Student::class);
+    }
 }

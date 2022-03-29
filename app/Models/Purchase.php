@@ -10,26 +10,18 @@ class Purchase extends Model
     use HasFactory;
    
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
     protected $fillable = [
         'purchase_date',
         'voucher_no',
         'voucher_id',
         'parent_id',
     ];
+
+    public function voucher(){
+        return $this->belongsTo(Voucher::class);
+    }
+
+    public function parent(){
+        return $this->belongsTo(Parent::class);
+    }
 }

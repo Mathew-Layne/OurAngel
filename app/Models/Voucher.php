@@ -9,20 +9,7 @@ class Voucher extends Model
 {
     use HasFactory;
    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
+  
     protected $fillable = [
         'name',
         'value',
@@ -30,4 +17,8 @@ class Voucher extends Model
         'voucher_id',
         'student_id',
     ];
+    
+    public function voucherHistory(){
+        return $this->hasMany(VoucherHistory::class);
+    }
 }
