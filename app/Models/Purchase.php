@@ -8,4 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 class Purchase extends Model
 {
     use HasFactory;
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    protected $fillable = [
+        'purchase_date',
+        'voucher_no',
+        'voucher_id',
+        'parent_id',
+    ];
 }

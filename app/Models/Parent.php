@@ -8,4 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Parent extends Model
 {
     use HasFactory;
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    protected $fillable = [
+        'trn',
+        'user_id',
+    ];
 }

@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Voucher extends Model
 {
     use HasFactory;
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    protected $fillable = [
+        'name',
+        'value',
+        'price',
+        'voucher_id',
+        'student_id',
+    ];
 }
