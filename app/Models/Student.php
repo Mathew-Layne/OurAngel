@@ -24,4 +24,8 @@ class Student extends Model
     public function voucherHistory(){
         return $this->hasMany(VoucherHistory::class);
     }
+
+    public function purchase(){
+        return $this->hasMany(Purchases::class);
+    }
 }

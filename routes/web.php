@@ -22,3 +22,6 @@ require __DIR__.'/auth.php';
 Route::view('/admin/dashboard', 'admin.dashboard')->name('admin.dashboard');
 Route::view('/admin/voucher', 'admin.voucher')->name('admin.voucher');
 Route::view('/admin/purchases', 'admin.purchases')->name('admin.purchases');
+
+Route::view('/parents/voucher', 'parents.voucher')->name('parents.voucher');
+Route::view('/parents/purchases', 'parents.purchases')->name('parents.purchases');

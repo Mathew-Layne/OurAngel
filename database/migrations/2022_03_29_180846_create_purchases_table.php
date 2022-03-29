@@ -18,7 +18,9 @@ return new class extends Migration
             $table->date('purchase_date');
             $table->integer('quantity');
             $table->foreignId('parent_id')->constrained()->onDelete('cascade');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->foreignId('voucher_id')->constrained();
+            $table->decimal('amt_paid', 8, 2);
             $table->timestamps();
         });
     }
