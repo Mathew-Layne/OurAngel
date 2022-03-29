@@ -24,4 +24,8 @@ class Purchase extends Model
     public function parent(){
         return $this->belongsTo(Parent::class);
     }
+
+    public function student(){
+        return $this->belongsTo(Student::class);
+    }
 }

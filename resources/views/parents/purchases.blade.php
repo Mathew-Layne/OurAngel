@@ -1,7 +1,7 @@
 <x-header>
     <x-parents.dashboard>
 
-        @livewire('parents.voucher')
+        @livewire('parents.purchases')
 
     </x-parents.dashboard>
 </x-header>
