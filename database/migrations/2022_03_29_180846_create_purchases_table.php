@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('purchase_date');
             $table->foreignId('parent_id')->constrained()->onDelete('cascade');
             $table->foreignId('voucher_id')->constrained();
-            $table->string('voucher_no')->unique();
+            $table->integer('quantity')->unsigned();
             $table->timestamps();
         });
     }
