@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('vouchers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('value')->unsigned();
+            $table->decimal('price',8,2)->unsigned();
             $table->timestamps();
         });
     }
