@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('voucher_histories', function (Blueprint $table) {
             $table->id();
+            $table->date('purchased_on');
+            $table->foreignId('voucher_id')->constrained();
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->decimal('amount');
+            $table->decimal('balance');
             $table->timestamps();
         });
     }
