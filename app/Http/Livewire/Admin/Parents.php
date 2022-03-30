@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use App\Models\Parents as ModelsParents;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -19,6 +20,7 @@ class Parents extends Component
             'first_name'=>$this->first_name,
             'last_name'=>$this->last_name,
             'email'=>$this->email,
+            'password' => Hash::make("Password") 
         ])->id;
 
         ModelsParents::create([
