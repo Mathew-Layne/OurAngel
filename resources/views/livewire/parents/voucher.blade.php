@@ -1,15 +1,15 @@
 <div>
 
-  {{-- @if($addMember) --}}
-    <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
+  @if($makePurchase)
+    <section class="absolute h-full left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
         <div class="w-full lg:w-6/12 px-4 mt-6">
-            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
+            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50  ">
+                <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700  ">
                     <div class="text-center flex justify-between">
                         <h6 class="text-blueGray-700 text-xl font-bold">
                             Purchase Voucher
                         </h6>
-                        <i wire:click="$set('addMember', false)" class="fas fa-times text-2xl cursor-pointer"></i>
+                        <i wire:click="$set('makePurchase', false)" class="fas fa-times text-2xl cursor-pointer"></i>
                     </div>
                 </div>
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
@@ -26,20 +26,14 @@
                                 <div class="w-full lg:w-12/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Student Name
-                                        </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter First Name">
-                                        @error('first_name')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
-                                    </div>
-                                </div>
-
-                                <div class="w-full lg:w-12/12 px-4">
-                                    <div class="relative w-full mb-3">
-                                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Voucher Name
                                         </label>
-                                        <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Last Name">
+                                        <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                            <option value="">Select Voucher</option>
+                                            @foreach ($voucherPay as $pay)
+                                            <option value="{{ $pay->id }}">{{ $pay->name }}</option>
+                                            @endforeach
+                                        </select>
                                         @error('last_name')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
@@ -48,9 +42,9 @@
                                 <div class="w-full lg:w-6/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            Email Address
+                                            Student Name
                                         </label>
-                                        <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Email Address">
+                                        <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Student Name">
                                         @error('email')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
@@ -59,13 +53,46 @@
                                 <div class="w-full lg:w-6/12 px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                                            TRN
+                                            Amount
                                         </label>
-                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter TRN">
+                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Amount to be Paid">
                                         @error('trn')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
-                                </div>                               
+                                </div> 
+                                
+                                <div class="w-full lg:w-12/12 px-4">
+                                  <div class="relative w-full mb-3">
+                                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                          Card Number
+                                      </label>
+                                      <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Card Number">
+                                      @error('last_name')<span class="text-xs text-red-600">{{
+                                          $message }}</span>@enderror
+                                  </div>
+                              </div>
+
+                              <div class="w-full lg:w-6/12 px-4">
+                                  <div class="relative w-full mb-3">
+                                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                          CVV
+                                      </label>
+                                      <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter CVV">
+                                      @error('email')<span class="text-xs text-red-600">{{
+                                          $message }}</span>@enderror
+                                  </div>
+                              </div>
+
+                              <div class="w-full lg:w-6/12 px-4">
+                                  <div class="relative w-full mb-3">
+                                      <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                                          Exp. Date
+                                      </label>
+                                      <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Exp. Date">
+                                      @error('trn')<span class="text-xs text-red-600">{{
+                                          $message }}</span>@enderror
+                                  </div>
+                              </div>
 
                             </div>
                     </form>
@@ -75,7 +102,7 @@
     </section>
 
 
-    {{-- @endif --}}
+    @endif
 
   <div>
     <table class="min-w-full table-auto">
