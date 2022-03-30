@@ -22,11 +22,11 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::view('/admin/dashboard', 'admin.dashboard')->name('admin.dashboard');
-Route::view('/admin/voucher', 'admin.voucher')->name('admin.voucher');
-Route::view('/admin/purchases', 'admin.purchases')->name('admin.purchases');
-Route::view('/admin/parents', 'admin.parents')->name('admin.parents');
-Route::view('/admin/students', 'admin.students')->name('admin.students');
+Route::view('/admin/dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware(['auth','admin']);
+Route::view('/admin/voucher', 'admin.voucher')->name('admin.voucher')->middleware(['auth','admin']);
+Route::view('/admin/purchases', 'admin.purchases')->name('admin.purchases')->middleware(['auth','admin']);
+Route::view('/admin/parents', 'admin.parents')->name('admin.parents')->middleware(['auth','admin']);
+Route::view('/admin/students', 'admin.students')->name('admin.students')->middleware(['auth','admin']);
 
-Route::view('/parents/voucher', 'parents.voucher')->name('parents.voucher');
-Route::view('/parents/purchases', 'parents.purchases')->name('parents.purchases');
+Route::view('/parents/voucher', 'parents.voucher')->name('parents.voucher')->middleware(['auth','parents']);
+Route::view('/parents/purchases', 'parents.purchases')->name('parents.purchases')->middleware(['auth','parents']);

@@ -43,6 +43,18 @@ class Kernel extends HttpKernel
             'throttle:api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        'dashredirect' => [
+            \App\Http\Middleware\DashRedirect::class            
+        ],
+
+        'admin' => [
+            \App\Http\Middleware\AdminMiddleware::class            
+        ],
+
+        'parents' => [
+            \App\Http\Middleware\ParentMiddleware::class            
+        ],
     ];
 
     /**
