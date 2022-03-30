@@ -91,13 +91,13 @@
                         <h6 class="text-blueGray-700 text-xl font-bold">
                             Parent Information
                         </h6>
-                        <i wire:click="$set('addParent', false)" class="fas fa-times text-2xl cursor-pointer"></i>
+                        <i wire:click="$set('editParent', false)" class="fas fa-times text-2xl cursor-pointer"></i>
                     </div>
                 </div>
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
 
 
-                    <form wire:submit.prevent="createParent()">
+                    <form wire:submit.prevent="parentUpdate()">
                         <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
                            Parent Details
                         </h6>
