@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashRedirect
 {
@@ -16,6 +17,14 @@ class DashRedirect
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth::user()->user_type == "Admin"){
+            return redirect()->route('admin.dashboard');
+        }
+
+        if(Auth::user()->user_type == "Parent"){
+            return redirect()->route('parents.voucher');
+        }
+
         return $next($request);
     }
 }
