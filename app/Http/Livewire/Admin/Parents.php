@@ -45,7 +45,18 @@ class Parents extends Component
             'trn'=> $this->trn,  
         ]);
 
-        User::where('id', )
+        $userId = ModelsParents::where('id', $this->parentId)->get('user_id'); 
+
+        User::where('id',$userId)->update([
+            'first_name'=>$this->first_name,
+            'last_name' => $this->last_name,
+            'email' =>$this->email,
+         ]);
+    }
+
+    public function deleteParent($id)
+    {
+        ModelsParents::where('id', $id)->delete();
     }
 
     public function render()
