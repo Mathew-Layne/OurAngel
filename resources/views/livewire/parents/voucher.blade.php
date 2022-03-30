@@ -28,14 +28,14 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Voucher Name
                                         </label>
-                                        <select class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                        <select wire:model="voucherId" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                                             <option value="">Select Voucher</option>
-                                            @foreach ($voucherPay as $pay)
-                                            <option value="{{ $pay->id }}">{{ $pay->name }}</option>
-                                            @endforeach
+                                            {{-- @foreach ($voucherPay as $pay) --}}
+                                            <option value="{{ $voucherPay->id }}">{{ $voucherPay->name }}</option>
+                                            {{-- @endforeach --}}
                                         </select>
-                                        @error('last_name')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
+                                        {{-- @error('last_name')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror --}}
                                     </div>
                                 </div>
 
@@ -44,9 +44,14 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Student Name
                                         </label>
-                                        <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Student Name">
-                                        @error('email')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
+                                        <select wire:model="studentId" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                                          <option value="">Select Student</option>
+                                          @foreach ($students as $student)
+                                            <option value="{{ $student->id }}">{{ $student->first_name }} {{ $student->last_name }}</option>                                            
+                                          @endforeach
+                                        </select>
+                                        {{-- @error('email')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror --}}
                                     </div>
                                 </div>
 
@@ -55,9 +60,9 @@
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Amount
                                         </label>
-                                        <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Amount to be Paid">
-                                        @error('trn')<span class="text-xs text-red-600">{{
-                                            $message }}</span>@enderror
+                                        <input wire:model="amount" type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Amount to be Paid">
+                                        {{-- @error('trn')<span class="text-xs text-red-600">{{
+                                            $message }}</span>@enderror --}}
                                     </div>
                                 </div> 
                                 
@@ -67,8 +72,7 @@
                                           Card Number
                                       </label>
                                       <input type="text" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Card Number">
-                                      @error('last_name')<span class="text-xs text-red-600">{{
-                                          $message }}</span>@enderror
+                                      
                                   </div>
                               </div>
 
@@ -78,8 +82,7 @@
                                           CVV
                                       </label>
                                       <input type="email" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter CVV">
-                                      @error('email')<span class="text-xs text-red-600">{{
-                                          $message }}</span>@enderror
+                                      
                                   </div>
                               </div>
 
@@ -89,11 +92,13 @@
                                           Exp. Date
                                       </label>
                                       <input type="text" inputmode="numeric" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="Enter Exp. Date">
-                                      @error('trn')<span class="text-xs text-red-600">{{
-                                          $message }}</span>@enderror
+                                     
                                   </div>
                               </div>
-
+                              <button type="button" wire:click="purchaseNow({{ $student->id }})"
+                                class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+                                Buy Now
+                              </button>  
                             </div>
                     </form>
                 </div>
