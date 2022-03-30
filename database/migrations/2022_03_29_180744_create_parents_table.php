@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->bigInteger('trn')->unsigned();
-            $table->bigInteger('phone_no')->unsigned();
+            $table->bigInteger('phone_no')->unsigned()->nullable();
             $table->timestamps();
         });
     }

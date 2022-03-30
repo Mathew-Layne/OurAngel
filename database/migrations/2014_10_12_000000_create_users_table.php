@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->string('password');
-            $table->string('user_type');
+            $table->string('password')->default('password123');
+            $table->string('user_type')->default('parent');
             $table->timestamps();
         });
     }
