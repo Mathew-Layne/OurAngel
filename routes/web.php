@@ -21,6 +21,7 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/logout', [HomeController::class, 'logout'])->name('logout');
 
 Route::view('/admin/dashboard', 'admin.dashboard')->name('admin.dashboard')->middleware(['auth','admin']);
 Route::view('/admin/voucher', 'admin.voucher')->name('admin.voucher')->middleware(['auth','admin']);
