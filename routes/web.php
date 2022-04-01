@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,3 +34,12 @@ Route::view('/admin/students', 'admin.students')->name('admin.students')->middle
 
 Route::view('/parents/voucher', 'parents.voucher')->name('parents.voucher')->middleware(['auth','parents']);
 Route::view('/parents/purchases', 'parents.purchases')->name('parents.purchases')->middleware(['auth','parents']);
+
+Route::get('/token/generate', function(Request $request){
+
+    $user = User::where('id', Auth::id())->first();
+
+    $token = $user->createToken('voucher-api');
+ 
+    return ['token' => $token->plainTextToken];
+});

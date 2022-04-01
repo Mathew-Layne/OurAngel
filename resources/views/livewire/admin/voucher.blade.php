@@ -72,43 +72,45 @@
     <table class="min-w-full table-auto">
       <thead class="justify-between">
         <tr class="bg-gray-800">
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-6">
             <span class="text-gray-300">Name</span>
           </th>
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-4">
             <span class="text-gray-300">Value</span>
           </th>
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-4">
             <span class="text-gray-300">Price</span>
           </th>
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-4">
             <span class="text-gray-300">Actions</span>
           </th>
         </tr>
       </thead>
-      <tbody class="bg-gray-200">
+      <tbody class="bg-gray-200">        
         @foreach ($vouchers as $voucher)
         <tr class="bg-white border-4 border-gray-200">
-          <td class="">
+          <td class="text-left py-4 px-4">
             <span class="text-center ml-2 font-semibold">{{ $voucher->name }}</span>
           </td>
-          <td class="px-16 py-2">
+          <td class="text-left py-4 px-4">
             <span>{{ $voucher->value }}</span>
           </td>
-          <td class="px-16 py-2">
+          <td class="text-left py-4 px-4">
             <span>{{ $voucher->price }}</span>
           </td>
-          <td class="px-16 py-2">
+          <td class="text-left py-4 px-4">
             <button type="button" wire:click="voucherEdit({{ $voucher->id }})"
-              class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+              class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
               Edit
             </button>
             <button type="button" wire:click="voucherDelete({{ $voucher->id }})"
-              class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+              class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 mx-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
               Delete
             </button>
           </td>
         </tr>
+
+        
         @endforeach
       </tbody>
     </table>

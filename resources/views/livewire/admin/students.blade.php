@@ -201,22 +201,22 @@
     <table class="min-w-full table-auto">
       <thead class="justify-between">
         <tr class="bg-gray-800">
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-6">
             <span class="text-gray-300">Student Name</span>
           </th>
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-4">
             <span class="text-gray-300">Student ID No.</span>
           </th>
 
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-4">
             <span class="text-gray-300">Parent Name</span>
           </th>
 
-          <th class="px-16 py-2">
+          <th class="text-left py-4 px-4">
             <span class="text-gray-300">Grade</span>
           </th>
 
-           <th class="px-16 py-2">
+           <th class="text-left py-4 px-4">
             <span class="text-gray-300">Action</span>
           </th>
 
@@ -225,20 +225,20 @@
       <tbody class="bg-gray-200">
         @foreach ($students as $student)
         <tr class="bg-white border-4 border-gray-200">
-          <td class="">
+          <td class="text-left py-4 px-4">
             <span class="text-center ml-2 font-semibold">{{ $student->first_name}} {{ $student->last_name}}</span>
           </td>
-          <td class="px-16 py-2">
+          <td class="text-left py-4 px-4">
             <span>{{ $student->student_id }}</span>
           </td>
-          <td class="px-16 py-2">
+          <td class="text-left py-4 px-4">
             <span>{{ $student->parent->user->first_name }} {{ $student->parent->user->last_name }}</span>
           </td>
-           <td class="px-16 py-2">
+           <td class="text-left py-4 px-4">
             <span>{{ $student->grade }}</span>
           </td>
 
-          <td class="px-16 py-2">
+          <td class="text-left py-4 px-4">
             <button type="button" wire:click="modifyStudent({{ $student->id }})"
               class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
               Edit
