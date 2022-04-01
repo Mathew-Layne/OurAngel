@@ -2,15 +2,15 @@
     <div>
 
  <button type="button" wire:click="$set('addStudent', true)"
-    class="border border-indigo-500 bg-black text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline">
+    class="bg-gray-900 text-white rounded-md px-4 py-2 mb-2 transition duration-500 ease select-none hover:bg-gray-800 focus:outline-none focus:shadow-outline">
     Add Student
   </button>  
 
 @if($addStudent)
-  <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
+  <section class="h-full absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
         <div class="w-full lg:w-6/12 px-4 mt-6">
-            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
+            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                <div class="rounded-t bg-white mb-0 px-6 py-6">
                     <div class="text-center flex justify-between">
                         <h6 class="text-blueGray-700 text-xl font-bold">
                            Student Information
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>  
                                 
-                                <div class="w-full lg:w-6/12 px-4">
+                                <div class="w-full lg:w-full px-4">
                                     <div class="relative w-full mb-3">
                                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                             Parent
@@ -82,15 +82,14 @@
                                         <select wire:model="parent_id" name="parent_id" id="parent_id" class="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                                             <option value="">Choose a parent</option>
                                             @foreach($parents as $parent)
-                                            <option value="{{ $parent->id }}">{{ $parent->user->first_name }} {{ $parent->user->last_name }}</option>
+                                            <option value="{{ $parent->id }}">{{ $parent->user->first_name }} {{ $parent->user->last_name }} - {{ $parent->trn }}</option>
                                             @endforeach
                                         </select>
                                         @error('parent_id')<span class="text-xs text-red-600">{{
                                             $message }}</span>@enderror
                                     </div>
                                 </div> 
- <button
-          class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Add</button>
+                                <button class="px-10 bg-blue-600 ml-4 mt-3 py-3 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Add</button>
                             </div>
                     </form>
                 </div>
@@ -103,8 +102,8 @@
 @if($editStudent)
   <section class="absolute left-0 top-0 flex justify-center items-center z-10 bg-black bg-opacity-75 w-full py-1">
         <div class="w-full lg:w-6/12 px-4 mt-6">
-            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0 dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
-                <div class="rounded-t bg-white mb-0 px-6 py-6 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800">
+            <div class="bg-white flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
+                <div class="rounded-t bg-white mb-0 px-6 py-6">
                     <div class="text-center flex justify-between">
                         <h6 class="text-blueGray-700 text-xl font-bold">
                            Student Information
@@ -183,8 +182,7 @@
                                             $message }}</span>@enderror
                                     </div>
                                 </div> 
- <button
-          class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Update</button>
+                                <button class="flex items-center justify-center h-12 px-6 w-64 bg-blue-600 mt-8 rounded font-semibold text-sm text-blue-100 hover:bg-blue-700">Update</button>
                             </div>
                     </form>
                 </div>
